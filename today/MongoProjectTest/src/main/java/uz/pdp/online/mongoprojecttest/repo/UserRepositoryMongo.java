@@ -1,4 +1,8 @@
-package uz.pdp.online.mongoprojecttest;
+package uz.pdp.online.mongoprojecttest.repo;
 
-public class UserRepositoryMongo {
+import org.springframework.data.mongodb.repository.MongoRepository;
+import uz.pdp.online.mongoprojecttest.entity.User;
+
+public interface UserRepositoryMongo extends MongoRepository<User, String> {
+    User findByUsername(String username);
 }

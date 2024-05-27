@@ -1,1 +1,16 @@
-spring.application.name=WebClientTutorMain
+server:
+  port: 8081
+
+spring:
+  application:
+    name: WebClientTutorMain
+
+  datasource:
+    username: postgres
+    password: Jayxunbey2003
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop

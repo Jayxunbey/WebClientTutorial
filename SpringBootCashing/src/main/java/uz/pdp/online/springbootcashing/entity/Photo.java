@@ -1,5 +1,4 @@
-package uz.pdp.online.webclienttutorial.entity;
-
+package uz.pdp.online.springbootcashing.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -11,13 +10,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+public class Photo {
     @Id
-    private Long id;
-
-    private String name;
-
-    private String email;
+    private Integer id;
+    private int albumId;
+    private String title;
+    private String url;
+    private String thumbnailUrl;
 }

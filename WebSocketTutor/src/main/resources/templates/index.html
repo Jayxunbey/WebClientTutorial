@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js" integrity="sha512-1QvjE7BtotQjkq8PxLeF6P46gEpBRXuskzIVgjFpekzFVF4yjRgrQvTG1MTOJ3yQgvTteKAcO7DSZI92+u/yZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/stomp-websocket@2.3.4-next/lib/stomp.min.js" integrity="sha256-J/Fmm7sRV2Xl80GnYljc6S/bKiEMLzDKDlu488D9TFs=" crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button onclick="connect()" >Connect</button>
+
+    <br>
+    <h2>Info: </h2>
+    <br>
+    <h3 id="text-h3"></h3>
+<script>
+    let a = 0;
+    let clientbu = null;
+    function connect() {
+        let socket = new SockJS('http://localhost:8081/ws')
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, framed => {
+            document.getElementById('text-h3').innerHTML='connected: '+framed+' - '+a;
+            a=a+1;
+            console.log('connected: '+framed)
+        });
+    }
+</script>
+</body>
+</html>
